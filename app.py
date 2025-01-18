@@ -15,6 +15,8 @@ def create_silhouette(input_path, output_path):
             r, g, b, a = img.getpixel((x, y))
             if a > 0:  # If the pixel is not fully transparent
                 silhouette.putpixel((x, y), (0, 0, 0, a))
+            else:
+                silhouette.putpixel((x, y), (255, 255, 255, 255)) # Set to white
     
     # Save the silhouette image
     silhouette.save(output_path, "PNG")
